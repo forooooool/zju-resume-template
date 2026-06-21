@@ -31,14 +31,14 @@
     Path = fonts/hansans/,
     Extension = .ttf,
     BoldFont = NotoSansSC-Bold.ttf, % 加粗字体
-]{NotoSansSC-Regular.otf} % 正文字体
+]{NotoSansSC-Regular.ttf} % 正文字体
 
 
 \usepackage{relsize}
 \usepackage{xspace}
 
 % 使用 fontawesome（部分图标）
-\usepackage{fontawesome} 
+\usepackage{fontawesome}
 
 % A4纸，上下左右边距
 \usepackage[
@@ -76,9 +76,9 @@
 % =======================================================================
 
 
-\titleformat{\section}         % 定制 \section 命令 
+\titleformat{\section}         % 定制 \section 命令
 {\large\bfseries\raggedright} % 将 section 标题设置为大号、粗体且左对齐
-{}{0em}                      % 可用于为所有 section 添加前缀（如“章节...”）
+{}{0em}                      % 可用于为所有 section 添加前缀（如"章节..."）
 {}                           % 可用于在标题前插入代码
 [{\color{CVBlue}\titlerule}]  % 在标题后插入一条横线
 \titlespacing*{\section}{0cm}{*1.6}{*1.2}
@@ -89,67 +89,88 @@
 \pagenumbering{gobble}
 
 %%%% 利用tikz来定位照片
-\begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north east] at ($(current page.north east)+(-2cm,-1.2cm)$) {\includegraphics[height=3cm]{avatar.jpg}};
+\begin{tikzpicture}[remember picture, overlay]
+    \node[anchor = north east] at ($(current page.north east)+(-1.6cm,-0.6cm)$) {\includegraphics[height=3cm]{self_cropped.jpg}};
   \end{tikzpicture}%
-  %%%% 利用tikz来定位学校Logo，这里只在第一页显示
-  \begin{tikzpicture}[remember picture, overlay] 
-    \node[anchor = north west] at ($(current page.north west)+(0.5cm,+1.0cm)$) {\includegraphics[height=6cm]{zju.png}};
-  \end{tikzpicture}%
-\centerline{\LARGE\bfseries{胡豆}} 
+  %%%% 学校Logo已移除
+\vspace*{1em}
+\centerline{\LARGE\bfseries{张宗森}}
 
-\centerline{\normalsize{\faPhone\ 111-1111-1111 \quad \faEnvelopeO\ \href{mailto:3230100000@zju.edu.cn}{3230100000@zju.edu.cn}}} 
+\centerline{\normalsize{\faPhone\ 173-0098-8159 \quad \faEnvelopeO\ \href{mailto:17300988159@163.com}{17300988159@163.com} \quad \textcolor{CVBlue}{\faBirthdayCake}\ 2002.07 \quad \faMale\ 男}}
 
-\centerline{\normalsize{\faGithubSquare\ \href{https://github.com/maksymilan}{https://github.com/maksymilan} \quad \faRssSquare\ \href{https://maksymilan.github.io/}{https://maksymilan.github.io}}} 
-    
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}    
-\textbf{浙江大学} \hfill 2023.9 -- 至今\\[0.5em] % 标题和正文间加一点距离
-CC98烂坑挖掘工程与技术\quad 大二 
+\vspace{1.2em}
+
+\centerline{\parbox{0.92\textwidth}{\centering\normalsize{\textbf{\textcolor{CVBlue}{\faBullseye}\ 求职意向：}影像、多媒体、ISP、色彩、图像处理}}}
+
+\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faGraduationCap}\ 教育背景}
+\textbf{浙江大学} \hfill 2020.09 -- 2024.06\\
+本科 \quad 光电科学与信息工程
 \begin{itemize}[nosep]
-    \item 相关课程：《烂坑挖掘及基础》、《高级挖坑技巧》、《烂坑数理统计》
+    \item 相关课程：物理光学、图像处理、数字信号处理、光学设计、光电检测技术
+\end{itemize}
+\vspace{0.3em}
+\textbf{浙江大学} \hfill 2024.09 -- 2027.06\\
+硕士 \quad 光学工程 \quad （颜色科学与影像技术）
+\begin{itemize}[nosep]
+    \item 研究方向：HDR成像、处理与显示、Tone Mapping及其后的色彩校正、白平衡
 \end{itemize}
 
 \section{\makebox[\widthof{\faUsers}][c]{\color{CVBlue}\faUsers}\ 项目经历}
 
-% --- 第一个项目 ---
-% 将标题行末尾的 \\ 替换为 \titlebreak 命令
-\textbf{98烂坑风控与可视化作战平台} \hfill 2024.08 -- 至今 \titlebreak
-项目描述：为维护cc98社区的讨论纯度、净化“心灵之约”版块风气，本项目旨在对“烂坑”进行科学、严谨的量化分析，并引入\textbf{大语言模型(LLM)}对烂坑帖进行\textbf{自动化情感极性与“离谱指数”标注}。
-% 在 itemize 的选项中，使用 topsep=\intraProjectListTopSep 来控制上边距
+% --- 第六个项目 ---
+\textbf{基于人眼色适应机制的环境光调制显示色彩补偿技术} \hfill 2025.03 -- 至今 \titlebreak
+项目描述：校企合作项目。解决环境光变化带来的人眼色适应偏移问题，消除实景与拍摄回看画面存在的色彩观感差异。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{数据与后端}：运用 \textbf{Go} 语言及 \textbf{GORM} 框架，实现对全站“烂坑”帖的7x24小时全天候\textbf{抓取}与\textbf{入库}(MySQL)。
-    \item \textbf{可视化前端}：采用原生 \textbf{HTML/CSS/JS} 构建了“烂坑”实时监控\textbf{作战大屏}。实现了坑主成分分析、挖坑热力图、年度烂坑王榜单等\textbf{可视化图表}，并通过 \textbf{AJAX} 异步刷新，确保数据洞察的实时性。
-    \item \textbf{核心产出}：全面掌握了从\textbf{数据采集、清洗、LLM标注到可视化分析}的“反烂坑”全链路技术。
+    \item 搭建具备可调照度、色温的标准化观测实验平台，通过专业色度设备完成参数校准，依托\textbf{记忆匹配、调节法、恒常刺激法}等多类心理物理学范式采集可靠的人眼感知色貌数据。
+    \item 基于 von Kries、WGM 色适应模型完成数据建模，结合人眼视觉特性优化模型结构、拓展校正模块，有效提升\textbf{色适应预测精度与泛化能力}。
+    \item 研究成果可用于影像设备\textbf{自适应白点调节}功能开发，为全链路色彩统一与画质优化提供实验依据和核心算法支撑。
 \end{itemize}
 
-% 使用 \projectsep 命令来分隔两个项目
 \projectsep
 
-% --- 第二个项目 ---
-\textbf{AIGC驱动的超进化自动挖坑机 (Agent)} \hfill 2025.02 -- 至今 \titlebreak
-项目描述：为探索心灵版规的边界，以及测试版主锁沉反应速度的极限，本项目基于\textbf{多智能体协作(MCP)与LLM}技术，开发了一款能\textbf{自主“挖坑”与“互坑”}的AI Agent。
+% --- 第五个项目 ---
+\textbf{HDR 图像阶调映射后感知色彩补偿研究} \hfill 2025.06 -- 至今 \titlebreak
+项目描述：补偿HDR图像经阶调映射后的色彩失真。该问题涉及跨亮度的主观色彩感知匹配，现有客观指标指导效果欠佳，需设计实验探索解决路径。
 \begin{itemize}[nosep, topsep=\intraProjectListTopSep]
-    \item \textbf{并发与调度}：后端采用 \textbf{Go} 语言，充分利用 \textbf{Goroutine} 和 \textbf{Channel} 的高并发模型，模拟\textbf{用户并发在线}，执行定时挖坑，确保挖坑行动的\textbf{隐蔽性}与\textbf{高效性}。
-    \item \textbf{实时监控与响应}：运用 \textbf{WebSocket} 协议实现了对目标帖子的\textbf{实时监听与交互}。确保在烂坑被识破的第一时间，Agent能光速完成\textbf{“lktp”}或\textbf{反向钓鱼}操作，展现出极高的AI博弈能力。
-    \item \textbf{可视化GUI}：前端使用 \textbf{React} 框架构建了\textbf{后台管理的可视化面板 (Admin Panel)}。可一键下达挖坑指令、动态调整Agent的\textbf{指令}、并实时监控数据。
+    \item 根据项目要求复现问题并进行了细致的观察分析，针对性地设计了实验方案。将问题感知表现与图像量化数据关联，拆解至\textbf{色调、饱和度}两个维度的子问题，转入感知均匀色彩空间完成色度参量对齐与主观感知匹配，分别校正了色调与饱和度偏差。
+    \item 为兼顾计算效率，把优化模型转化为可快速调用的\textbf{RGB三维查找表}。经主观评估实验对比，该方法校正效果优于现有主流阶调映射色彩校正算法，项目顺利通过验收。
 \end{itemize}
 
-\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 技术栈}
+\projectsep
+
+% --- 第三个项目 ---
+\textbf{不可移动文物HDR图像采集与展示关键技术研究} \hfill 2024.02 -- 2024.12 \titlebreak
+项目描述：山西省文物局课题。面向不可移动文物现场HDR图像采集与展示需求，建立从多曝光RAW捕获到显示设备特征化的完整技术流程。
+\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
+    \item 从相机噪声模型出发，推导了图像信噪比随曝光参数变化的解析预测方程，并基于人眼\textbf{对比度灵敏度函数（CSF）}提出了感知导向的曝光时间选择算法，实现了HDR图像采集的效率提升。
+    \item 将该曝光时间选择算法与相机控制软件 digicamcontrol 结合，编写了自动控制相机采集HDR图像的程序。
+    \item 赴\textbf{云冈石窟第20窟}开展现场HDR图像采集，建立了从多曝光RAW捕获、HDR融合、阶调映射到显示设备特征化的完整采集与展示技术流程。
+\end{itemize}
+
+\projectsep
+
+% --- 第一个项目 ---
+\textbf{本科毕业设计——光学传函综合测量仪的改进设计} \hfill 2023.12 -- 2024.05 \titlebreak
+项目描述：设计方案测量负焦距系统的焦距与调制传递函数（MTF）。
+\begin{itemize}[nosep, topsep=\intraProjectListTopSep]
+    \item 比较几种负焦距系统焦距测量方法的精度与测量范围，使用倾斜刀口法测量计算系统MTF（ESF->LSF->MTF），建模分析除目标组件外的MTF，根据级联MTF相乘关系计算得到目标组件MTF。
+    \item 与合作者完成电致变焦液晶透镜（负焦距）的焦距和MTF测量，负责设计实验方案并完成测量实验，相关论文发表于\textit{ACS Applied Optical Materials}。
+\end{itemize}
+
+\section{\makebox[\widthof{\faBook}][c]{\color{CVBlue}\faBook}\ 研究成果}
 \begin{itemize}[nosep]
-    \item \textbf{编程语言：} \textbf{Go}, Python, C++
-    \item \textbf{开发工具：} SSH, Git, Vim, MakeFile,LaTex
-    \item \textbf{操作系统：} Linux
+    \item Electrically tunable liquid crystal lens with varifocal capability [J]. \textit{ACS Applied Optical Materials}, 2024. (四作)
+    \item Color constancy in single-exposure imaging and multi-exposure HDR imaging [J]. \textit{Optics Express}, 2025. (四作)
 \end{itemize}
-\section{\makebox[\widthof{\faGraduationCap}][c]{\color{CVBlue}\faList}\ 获奖情况}
-\begin{itemize}
-    \item CC98年度用户 \hfill 2023.12
-    
+
+\section{\makebox[\widthof{\faCogs}][c]{\color{CVBlue}\faCogs}\ 专业技能}
+\begin{itemize}[nosep]
+    \item \textbf{编程语言：} Python, MATLAB, C++
+    \item \textbf{算法与工具：} OpenCV, MATLAB Image Processing Toolbox, Psychtoolbox, LaTeX, Linux, Git
+    \item \textbf{领域专长：} ISP pipeline基础、成像与显示设备色度特征化、色貌模型、HDR成像与阶调映射、数字图像处理、颜色科学、图像质量评价、心理物理学实验设计与数据分析
+    \item \textbf{深度学习：} 掌握计算机视觉主流网络架构及其在图像复原、白平衡、颜色迁移、HDR成像中的应用，熟悉 PyTorch 基础开发流程
 \end{itemize}
-    
-\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 其他}
-\begin{itemize}[parsep=0.5ex]
-    \item \textbf{技术博客：} \href{https://maksymilan.github.io/}{https://maksymilan.github.io/}
-    \item \textbf{GitHub：} \href{https://github.com/maksymilan}{https://github.com/maksymilan} 
-    \item \textbf{英语水平：} CET-4, CET-6
-\end{itemize}
+
+\section{\makebox[\widthof{\faInfo}][c]{\color{CVBlue}\faInfo}\ 自我评价}
+具备扎实的光学工程与颜色科学理论功底，研究方向涵盖HDR成像、色貌模型与显示技术。善于将学术研究成果转化为工程实践方案，具有较强的英文文献阅读与论文写作能力，具有多次团队合作经验，在合作中耐心负责，对待项目认真实干肯钻研，对影像品质有着源于感知实践的理解与追求，对科学技术前沿新进展保持关注，具备快速检索资源和学习新领域知识的能力。
 \end{document}
